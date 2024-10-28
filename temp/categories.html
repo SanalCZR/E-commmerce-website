@@ -1,0 +1,126 @@
+{%extends 'base.html'%}
+{% block content%}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/categories.css'%}">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+<style>
+    h1{
+    font-size: 30px;
+    color: #ff0000; /* You can choose the color you prefer */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff0000; /* Add a bottom border for emphasis */
+    padding-bottom: 5px;
+    }
+</style>
+
+
+<center><h1>CATEGORIES</h1></center> 
+
+<div class="col-md-12 mb-0">
+    <strong><a href="{% url 'index' %}" class="text-black" style="color: black">Home Page</a></strong>
+    <span class="mx-2 mb-0">/</span> 
+    <strong class="text-black" style="color: black;">Categories</strong>
+  </div>
+
+<div class="container mt-100">
+        
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <div class="card mb-30"><a class="card-img-tiles" href="#" data-abc="true">
+                    <div class="inner">
+                        <div class="main-img"><img src="{% static 'img/men-1.jpg'%}" alt="Category"></div>
+                        <div class="thumblist"><img src="{% static 'img/men-2.jpg'%}" alt="Category">
+                            <img src="{% static 'img/men-3.jpg'%}" alt="Category">
+                        </div>
+                    </div>
+                </a>
+                <div class="card-body text-center">
+                    <h4 class="card-title">MENS</h4>
+                    <p class="text-muted">Starting from $499</p>
+                    <a class="btn btn-outline-primary btn-sm" href="mens" data-abc="true">View Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="card mb-30"><a class="card-img-tiles" href="#" data-abc="true">
+                    <div class="inner">
+                        <div class="main-img"><img src="{% static 'img/product-3.jpg' %}" alt="Category"></div>
+                        <div class="thumblist"><img src="{% static 'img/product-4.jpg' %}" alt="Category">
+                            <img src="{% static 'img/product-9.jpg' %}" alt="Category">
+                        </div>
+                    </div>
+                </a>
+                <div class="card-body text-center">
+                    <h4 class="card-title">WOMENS</h4>
+                    <p class="text-muted">Starting from $50</p>
+                    <a class="btn btn-outline-primary btn-sm" href="womens" data-abc="true">View Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="card mb-30"><a class="card-img-tiles" href="#" data-abc="true">
+                    <div class="inner">
+                        <div class="main-img"><img src="{% static 'img/sp-1.webp' %}" alt="Category"></div>
+                        <div class="thumblist"><img src="{% static 'img/sp-2.webp' %}" alt="Category">
+                            <img src="{% static 'img/sp-4.webp' %}" alt="Category">
+                        </div>
+                    </div>
+                </a>
+                <div class="card-body text-center">
+                    <h4 class="card-title">Sports wears</h4>
+                    <p class="text-muted">Starting from $50</p>
+                    <a class="btn btn-outline-primary btn-sm" href="sports" data-abc="true">View Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="card mb-30"><a class="card-img-tiles" href="#" data-abc="true">
+                    <div class="inner">
+                        <div class="main-img"><img src="{% static 'img/sp-1.jpg' %}" alt="Category"></div>
+                        <div class="thumblist"><img src="{% static 'img/sp-2.jpg' %}" alt="Category">
+                            <img src="{% static 'img/sp-4' %}" alt="Category">
+                        </div>
+                    </div>
+                </a>
+                <div class="card-body text-center">
+                    <h4 class="card-title">KIDS</h4>
+                    <p class="text-muted">Starting from $50</p>
+                    <a class="btn btn-outline-primary btn-sm" href="kids" data-abc="true">View Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="col-md-4 col-sm-6">
+        <div class="card mb-30"><a class="card-img-tiles" href="#" data-abc="true">
+                <div class="inner">
+                    <div class="main-img"><img src="{% static 'img/head01.jpg' %}" alt="Category"></div>
+                    <div class="thumblist"><img src="{% static 'img/head02.jpg' %}" alt="Category">
+                        <img src="{% static 'img/head03.jpg' %}" alt="Category">
+                    </div>
+                </div>
+            </a>
+            <div class="card-body text-center">
+                <h4 class="card-title">Babies</h4>
+                <p class="text-muted">Starting from $49</p>
+                <a class="btn btn-outline-primary btn-sm" href=" babies" data-abc="true">View Products</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+{% endblock %}

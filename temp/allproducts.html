@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{%static 'css/shop/shop.css' %}" />
+
+<!-- product1 -->
+<div class="col-md-12 mb-0">
+  <strong><a href="{url 'index' }" class="text-black" style="color: black">Home Page</a></strong>
+  <span class="mx-2 mb-0">/</span> 
+  <strong><a href="#" class="text-black" style="color: black">All Products</a></strong>
+  <!-- <span class="mx-2 mb-0">/</span>
+  <strong class="text-black" style="color: black;">{{i.category}}</strong> -->
+</div>
+<section class="glass_section layout_padding">
+  <div class="container">
+    <!-- <div class="heading_container">
+      <h2>
+        <span> Our </span> Glasses
+      </h2>
+    </div>
+     -->
+    <div class="glass_container">
+      {% for i in l %}
+      <div class="box">
+        <div class="img-box" style="width: 200px; height: 200px;">
+          <a href="single/{{i.id}}"><img src="{{i.image.url}}" alt=""></a>
+        </div>
+        <div class="price">
+          <h3>
+            {{i.name}}
+          </h3>
+          <h5>
+            {{i.model}}
+          </h5>
+          <h6>
+            <p style="color: greenyellow;"></p><del style="color: red;">₹{{i.price}}</del><br>₹{{i.discount}} off</p></h6>
+
+            {% if request.session.id %} 
+            {% for j in request.session.id %} 
+            <form action="single/addcart/{{i.id}}" method="post"> 
+              {% csrf_token %} 
+            <button type="submit" class="btn btn-default btn-sm" style="background-color: red;"> 
+              <span class="glyphicon 
+                  glyphicon-shopping-cart"> 
+              </span> 
+              <b> Add to Cart </b> 
+          </button> 
+        </form> 
+        {% endfor %} 
+        {% else %} 
+        <a href="car"  class="btn btn-default btn-sm" style="background-color: red;">Add to cart</a> 
+        {% endif %} 
+          </div> 
+        </div>
+        {% endfor %}
+          
+          </div>
+          </div>
+    <div class="btn-box">
+      <a href="">
+        See More
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

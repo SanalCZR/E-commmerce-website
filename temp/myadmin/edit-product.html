@@ -1,0 +1,143 @@
+{% extends 'myadmin/adbase.html' %}
+
+
+{% block content %}
+{%load static%}
+
+
+<div class="container tm-mt-big tm-mb-big">
+  <div class="row">
+    <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+      <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="tm-block-title d-inline-block ">Edit Product</h2>
+          </div>
+        </div>
+        <div class="row tm-edit-product-row">
+          <div class="">
+            <form action="editproduct2/{{obj.id}}" method="post" class="tm-edit-product-form" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group mb-3">
+                <label
+                  for="name"
+                  >Product Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value="{{obj.name}}"
+                  class="form-control validate"
+                  required
+                />
+              </div>
+              <div class="form-group mb-3">
+                <label
+                  for="description"
+                  >Description</label
+                >
+                <input name="description"
+                  class="form-control validate"
+                  rows="3"
+                  value="{{obj.description}}"
+                  required
+                >
+              </div>
+              <div class="form-group mb-3">
+                <label
+                  for="description"
+                  >Features</label
+                >
+                <input name="features"
+                  class="form-control validate"
+                  rows="2"
+                  value="{{obj.features}}"
+                  required
+                >
+              </div>
+              <div class="form-group mb-3">
+                <label
+                  for="category"
+                  >Category</label
+                >
+                <select name="category"
+                  class="custom-select tm-select-accounts"
+                  id="category"
+                >
+                    <option value="M">Mens</option>
+                    <option value="W">womens</option>
+                    <option value="K">kids</option>
+                    <option value="S">sports</option>
+                </select>
+              </div>
+              <div class="row">
+                  <div class="form-group mb-3 col-xs-12 col-sm-6">
+                      <label
+                        for="expire_date"
+                        >Price
+                      </label>
+                      <input
+                        id="expire_date"
+                        name="price"
+                        type="text"
+                        value="{{obj.price}}"
+                        class="form-control validate"
+                        data-large-mode="true"
+                        required
+                      />
+                    </div>
+                    <div class="form-group mb-3 col-xs-12 col-sm-6">
+                      <label
+                        for="stock"
+                        >discount Price
+                      </label>
+                      <input
+                        id="stock" name="discount"
+                        type="text"
+                        value="{{obj.discount}}"
+                        class="form-control validate"
+                        required
+                      />
+                    </div>
+                    <div class="form-group mb-4 col-xs-12 col-sm-6">
+                      <label
+                        for="stock"
+                        >Product Image
+                      </label>
+                      <input
+                        type="file"
+                        class="form-control validate" 
+                        value="{{obj.image}}"
+                        style="padding-bottom: 50px;"
+                        name="image"
+                        required
+                       >
+                      </div>
+              </div>
+              
+          </div>
+          <!-- <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+            <div class="tm-product-img-dummy mx-auto">
+              <i
+                class="fas fa-cloud-upload-alt tm-upload-icon"
+                onclick="document.getElementById('img').click();"
+              ></i>
+            </div> -->
+            
+            <!-- </div> -->
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block text-uppercase">Save</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    {% endblock %}

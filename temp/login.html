@@ -1,0 +1,56 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    {% load static %}
+    <div class="form-modal">
+    
+        <div class="form-toggle">
+            <button id="login-toggle" onclick="toggleLogin()">log in</button>
+            <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+        </div>
+    
+        <div id="login-form">
+            <form action="log" method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Enter username"/>
+                <input type="password" name="password" placeholder="Enter password"/>
+                <button type="submit" class="btn login">login</button>
+                <p><a href="{% url 'forgot' %}">Forgot Password</a></p>
+                <hr/>
+    
+                {%for i in messages%}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> {{i}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            
+            {%endfor%}
+            </form>
+        </div>
+    
+        <div id="signup-form">
+            <form action="reg" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Enter your name">
+                <input type="email" name="email" placeholder="Enter your email"/>
+                <input type="text" name="phone" placeholder="Choose phone number"/>
+                <input type="text" name="username" placeholder="Choose username"/>
+                <input type="password" name="password" placeholder="Create password"/>
+                <input type="password" name="repassword" placeholder="Confirm password"/>
+                <button type="submit" name="save" class="btn signup">create account</button>
+                <p>Clicking <strong>create account</strong> means that you are agree to our <a href="{% static 'javascript:void(0)' %}">terms of services</a>.</p>
+                <hr/>
+               
+            {%for i in messages%}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> {{i}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            
+            {%endfor%}
+            </form>
+        </div>
+    
+    </div>
+    
+{% endblock %}
